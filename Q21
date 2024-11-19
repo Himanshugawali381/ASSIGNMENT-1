@@ -1,0 +1,25 @@
+import java.util.Scanner;
+// Write a Java program to convert a Binary Number to Decimal and Decimal to Binary
+public class Q21 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter 1 for Binary to Decimal or 2 for Decimal to Binary: ");
+        int choice = scanner.nextInt();
+
+        if (choice == 1) {
+            System.out.print("Enter binary number: ");
+            String binary = scanner.next();
+            System.out.println("Decimal: " + Integer.parseInt(binary, 2));
+        } else if (choice == 2) {
+            System.out.print("Enter decimal number: ");
+            int decimal = scanner.nextInt();
+            System.out.println("Binary: " + Integer.toBinaryString(decimal));
+        } else {
+            System.out.println("Invalid choice");
+        }
+
+        scanner.close();
+    }
+}
