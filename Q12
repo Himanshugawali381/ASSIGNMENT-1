@@ -1,0 +1,45 @@
+import java.util.Scanner;
+//Admission to a professional course is subject to the following conditions:
+//(a) marks in Mathematics >= 60 (b) marks in Physics >=50 (c) marks in Chemistry >=40 (d) //Total in all 3 subjects >=200
+//(Or) Total in Maths & Physics>=150 Given the marks in the 3 subjects of n (user input) //students, write a program to processthe applications to list the eligible candidates.
+
+public class AdmissionEligibility {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of students: ");
+        int n = scanner.nextInt();
+        
+        for (int i = 1; i <= n; i++) {
+            System.out.println("\nEnter details for student " + i + ":");
+            
+            System.out.print("Enter marks in Mathematics: ");
+            int mathMarks = scanner.nextInt();
+            
+            System.out.print("Enter marks in Physics: ");
+            int physicsMarks = scanner.nextInt();
+            
+            System.out.print("Enter marks in Chemistry: ");
+            int chemistryMarks = scanner.nextInt();
+            
+            boolean isEligible = checkEligibility(mathMarks, physicsMarks, chemistryMarks);
+            
+            if (isEligible) {
+                System.out.println("Student " + i + " is eligible for admission.");
+            } else {
+                System.out.println("Student " + i + " is not eligible for admission.");
+            }
+        }
+        
+        scanner.close();
+    }
+    
+    public static boolean checkEligibility(int mathMarks, int physicsMarks, int chemistryMarks) {
+        int totalMarks = mathMarks + physicsMarks + chemistryMarks;
+        int mathAndPhysicsTotal = mathMarks + physicsMarks;
+        
+        return (mathMarks >= 60 && physicsMarks >= 50 && chemistryMarks >= 40 && totalMarks >= 200) 
+               || (mathAndPhysicsTotal >= 150);
+    }
+}
