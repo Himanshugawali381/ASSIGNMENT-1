@@ -1,0 +1,14 @@
+//Write a Java program to reverse a number
+public class reverse {
+    public static void main(String[] args) {
+        int a = 917;
+        int rev  = 0;
+        while (a != 0) {
+            int n = a%10;
+             rev = rev*10 + n;
+             a = a/10; 
+        }
+        System.out.println(rev);
+    }
+}
+
